@@ -1,6 +1,6 @@
 <template>
   <div class="baseComplate" :style="style">
-    {{ text }}
+    <p v-html="text"></p>
   </div>
 </template>
 

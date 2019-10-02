@@ -1,5 +1,5 @@
 <template>
-  <div class="core">
+  <div class="core" :style="{ height: coreHeigth }">
     <component
       v-for="(item, index) in template"
       :key="index"
@@ -23,18 +23,26 @@ export default {
     baseImg,
     baseText
   },
-  mounted() { 
+  mounted() {
     let name = this.$route.params.name
     getTemplate(name).then(e => {
       console.log(e);
       if (e.data.code == 200) {
-        this.template = e.data.data
+        this.template = e.data.data.datas
+        this.height = e.data.data.objHeight
       }
     })
   },
+  computed: {
+    coreHeigth() {
+      return (this.height / this.baseHeight) + 'vh'
+    }
+  },
   data() {
     return {
-      template: []
+      template: [],
+      height: 667,
+      baseHeight: 6.67
     }
   }
 }
