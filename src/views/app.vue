@@ -5,6 +5,7 @@
       :key="index"
       :is="item.name"
       :id="item.id"
+      :link="item.link"
       :option="item.css"
       :text="item.text"
       :editStatus="item.editStatus"

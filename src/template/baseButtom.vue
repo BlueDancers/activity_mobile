@@ -1,5 +1,5 @@
 <template>
-  <button class="baseComplate" :style="style">
+  <button class="baseComplate" :style="style" @click="gotoLink">
     {{ text }}
   </button>
 </template>
@@ -15,6 +15,9 @@ export default {
       type: String,
       default: '按钮'
     },
+    link: {
+      type: String,
+    },
     option: {
       type: Object,
       default: {}
@@ -27,6 +30,13 @@ export default {
   computed: {
     style() {
       return handleStyle(this.option)
+    }
+  },
+  methods: {
+    gotoLink() {
+      if (this.link) {
+        location.href = this.link
+      }
     }
   }
 } 
