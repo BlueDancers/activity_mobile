@@ -34,6 +34,7 @@ export default {
   },
   methods: {
     gotoLink() {
+      this.$emit('form')
       if (this.link) {
         location.href = this.link
       }

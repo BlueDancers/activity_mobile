@@ -9,6 +9,9 @@
       :option="item.css"
       :text="item.text"
       :editStatus="item.editStatus"
+      :inputName="item.inputName"
+      :ref="item.inputName ? item.inputName : item.id"
+      @form="form"
     ></component>
   </div>
 </template>
@@ -18,11 +21,13 @@ import { getTemplate } from '../api/index';
 import baseButtom from '../template/baseButtom';
 import baseImg from '../template/baseImg';
 import baseText from '../template/baseText';
+import baseInput from '../template/baseInput'
 export default {
   components: {
     baseButtom,
     baseImg,
-    baseText
+    baseText,
+    baseInput
   },
   mounted() {
     let name = this.$route.params.name
@@ -44,6 +49,11 @@ export default {
       template: [],
       height: 667,
       baseHeight: 6.67
+    }
+  },
+  methods: {
+    form() {
+      console.log(this.$refs['default']);
     }
   }
 }
