@@ -25,6 +25,20 @@ export default {
     editStatus: {
       type: Boolean,
       default: false
+    },
+    refInput: {
+      type: Array,
+      default: []
+    },
+    btnType: {
+      type: Number,
+      default: 0
+    },
+    inputFromUrl: {
+      type: String,
+    },
+    urlMethod: {
+      type: String,
     }
   },
   computed: {
@@ -34,9 +48,18 @@ export default {
   },
   methods: {
     gotoLink() {
-      this.$emit('form')
-      if (this.link) {
-        location.href = this.link
+      if (this.btnType == 0) {
+
+      } else if (this.btnType == 1) {
+        if (this.link) {
+          location.href = this.link
+        }
+      } else if (this.btnType == 2) {
+        this.$emit('form', {
+          refInput: this.refInput,
+          inputFromUrl: this.inputFromUrl,
+          urlMethod: this.urlMethod
+        })
       }
     }
   }

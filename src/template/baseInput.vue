@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <input class="baseComplate" type="text" :style="style" />
-  </div>
+  <input class="baseComplate" :ref="inputName" type="text" :style="style" />
 </template>
 
 <script>
