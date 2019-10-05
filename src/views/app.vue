@@ -1,5 +1,6 @@
 <template>
-  <div class="core" :style="{ height: coreHeigth }">
+  <div class="core" :style="{ height: coreHeigth, background: background }">
+    <!--  -->
     <component
       v-for="(item, index) in template"
       :key="index"
@@ -26,6 +27,8 @@ import baseButtom from '../template/baseButtom';
 import baseImg from '../template/baseImg';
 import baseText from '../template/baseText';
 import baseInput from '../template/baseInput'
+import { isSoftKeyboard } from '../utils/index'
+import app from '../store/modules/app'
 import axios from 'axios';
 export default {
   components: {
@@ -35,23 +38,19 @@ export default {
     baseInput
   },
   mounted() {
-    let name = this.$route.params.name
-    getTemplate(name).then(e => {
-      if (e.data.code == 200) {
-        this.template = e.data.data.datas
-        this.height = e.data.data.objHeight
-      }
-    })
+    this.init()
+    this.ListeKeyboard()
   },
   computed: {
     coreHeigth() {
-      return (this.height / this.baseHeight) + 'vh'
-    }
+      return `${this.height / this.baseHeight}vh`
+    },
   },
   data() {
     return {
       template: [],
       height: 667,
+      background: 'white',
       baseHeight: 6.67
     }
   },
@@ -88,6 +87,40 @@ export default {
         .catch(err => {
           this.$Toast('网络出了小差.....')
         })
+    },
+    // 初始化
+    init() {
+      let name = this.$route.params.name
+      getTemplate(name).then(e => {
+        if (e.data.code == 200) {
+          this.template = e.data.data.datas
+          this.height = e.data.data.objHeight
+          this.background = e.data.data.background
+        }
+      })
+    },
+    // 监听移动端软键盘
+    ListeKeyboard() {
+      var originHeight =
+        document.documentElement.clientHeight || document.body.clientHeight;
+      window.addEventListener(
+        "resize",
+        () => {
+          var resizeHeight =
+            document.documentElement.clientHeight || document.body.clientHeight;
+          if (originHeight < resizeHeight) {
+            if (app.state.isSoftKeyboard) {
+              this.$store.commit('app/changeKeyboard', false)
+            }
+          } else {
+            if (!app.state.isSoftKeyboard) {
+              this.$store.commit('app/changeKeyboard', true)
+            }
+          }
+          originHeight = resizeHeight;
+        },
+        false
+      );
     }
   }
 }
@@ -95,8 +128,10 @@ export default {
 
 <style>
 .core {
+  overflow-x: hidden;
   position: relative;
   margin: 0px;
   padding: 0px;
+  height: 100vh;
 }
 </style>

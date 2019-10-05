@@ -16,7 +16,8 @@ export default {
   },
   computed: {
     style() {
-      return handleStyle(this.option)
+      let keyword = this.$store.state.app.isSoftKeyboard
+      return handleStyle(this.option, keyword)
     }
   },
   methods: {
