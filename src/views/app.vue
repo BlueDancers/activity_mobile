@@ -96,6 +96,7 @@ export default {
           this.template = e.data.data.datas
           this.height = e.data.data.objHeight
           this.background = e.data.data.background
+          document.title = e.data.data.textName
         }
       })
     },
