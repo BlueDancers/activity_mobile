@@ -23,7 +23,6 @@ function handleStyle(css, status) {
         } else {
           cssUsable[key] = `${css[key] / 6.67}vh`;
         }
-        // cssUsable[key] = `${css[key] / 3.75}vw`;
         // cssUsable[key] = `${css[key]}px`;
       } else {
         cssUsable[key] = `${css[key] / 3.75}vw`;

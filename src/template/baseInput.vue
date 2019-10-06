@@ -1,5 +1,11 @@
 <template>
-  <input class="baseComplate" :ref="inputName" type="text" :style="style" />
+  <input
+    class="baseComplate"
+    :placeholder="placeholder"
+    :ref="inputName"
+    type="text"
+    :style="style"
+  />
 </template>
 
 <script>
@@ -20,6 +26,10 @@ export default {
     inputName: {
       type: String,
       default: 'default'
+    },
+    placeholder: {
+      type: String,
+      default: '请填写'
     }
   },
   computed: {

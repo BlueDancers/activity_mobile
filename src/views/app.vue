@@ -16,6 +16,7 @@
       :btnType="item.btnType"
       :inputFromUrl="item.inputFromUrl"
       :urlMethod="item.urlMethod"
+      :placeholder="item.placeholder"
       @form="form"
     ></component>
   </div>
@@ -82,7 +83,11 @@ export default {
         }
       }
       axios.request(request).then(e => {
-        this.$Toast(e)
+        if (e.data.code == 200) {
+          this.$Toast(e.data.data)
+        } else {
+          this.$Toast('接口出现错误')
+        }
       })
         .catch(err => {
           this.$Toast('网络出了小差.....')
