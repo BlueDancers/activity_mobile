@@ -28,6 +28,7 @@ import baseButtom from '../template/baseButtom';
 import baseImg from '../template/baseImg';
 import baseText from '../template/baseText';
 import baseInput from '../template/baseInput'
+import baseDiv from '../template/baseDiv'
 import { isSoftKeyboard } from '../utils/index'
 import app from '../store/modules/app'
 import axios from 'axios';
@@ -36,7 +37,8 @@ export default {
     baseButtom,
     baseImg,
     baseText,
-    baseInput
+    baseInput,
+    baseDiv
   },
   mounted() {
     this.init()
