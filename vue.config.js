@@ -1,6 +1,7 @@
 const CompressionPlugin = require("compression-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 module.exports = {
+  publicPath: "./",
   productionSourceMap: false, // 去除map文件
   lintOnSave: false, //关闭eslint
   configureWebpack: () => {
