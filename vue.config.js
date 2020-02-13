@@ -1,5 +1,6 @@
 const CompressionPlugin = require("compression-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 module.exports = {
   publicPath: "/mobile/",
   productionSourceMap: false, // 去除map文件
@@ -24,7 +25,8 @@ module.exports = {
                 pure_funcs: ["console.log"]
               }
             }
-          })
+          }),
+          new CopyWebpackPlugin([{ from: "./src/static", to: "./" }])
         ]
       };
     }
