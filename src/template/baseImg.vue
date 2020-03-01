@@ -1,28 +1,27 @@
 <template>
-  <img class="baseComplate" :src="text" alt="" :style="style" />
+  <img class="baseComplate" :src="text" alt :style="style" />
 </template>
 
 <script>
-import { handleStyle } from '../utils/index';
+import { handleStyle } from "../utils/index";
 export default {
   props: {
     text: {
-      type: String,
+      type: String
     },
-    option: {
+    css: {
       type: Object,
       default: {}
     }
   },
   computed: {
     style() {
-      let keyword = this.$store.state.app.isSoftKeyboard
-      return handleStyle(this.option, keyword)
+      let keyword = this.$store.state.app.isSoftKeyboard;
+      return handleStyle(this.css, keyword);
     }
   },
-  methods: {
-  }
-}
+  methods: {}
+};
 </script>
 
 <style lang="less" scoped>

@@ -1,46 +1,41 @@
 <template>
   <input
     class="baseComplate"
-    :placeholder="placeholder"
-    :ref="inputName"
+    :placeholder="option.placeholder"
+    :ref="option.inputName"
     type="text"
     :style="style"
   />
 </template>
 
 <script>
-import { handleStyle } from '../utils/index';
+import { handleStyle } from "../utils/index";
 export default {
   props: {
     id: {
-      type: String,
+      type: String
     },
     text: {
       type: String,
-      default: '按钮'
+      default: "按钮"
     },
     option: {
       type: Object,
       default: {}
     },
-    inputName: {
-      type: String,
-      default: 'default'
-    },
-    placeholder: {
-      type: String,
-      default: '请填写'
+    css: {
+      type: Object,
+      default: {}
     }
   },
   computed: {
     style() {
-      let keyword = this.$store.state.app.isSoftKeyboard
-      return handleStyle(this.option, keyword)
+      let keyword = this.$store.state.app.isSoftKeyboard;
+      return handleStyle(this.css, keyword);
     }
   },
-  methods: {
-  }
-} 
+  methods: {}
+};
 </script>
 
 <style lang="less" scoped>

@@ -3,23 +3,21 @@
 </template>
 
 <script>
-import { handleStyle } from '../utils/index';
+import { handleStyle } from "../utils/index";
 export default {
   props: {
-    option: {
-      type: Object,
-      default: {}
+    css: {
+      type: Object
     }
   },
   computed: {
     style() {
-      let keyword = this.$store.state.app.isSoftKeyboard
-      return handleStyle(this.option, keyword)
+      let keyword = this.$store.state.app.isSoftKeyboard;
+      return handleStyle(this.css, keyword);
     }
   },
-  methods: {
-  }
-} 
+  methods: {}
+};
 </script>
 
 <style lang="less" scoped>

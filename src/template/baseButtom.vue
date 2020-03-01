@@ -1,70 +1,50 @@
 <template>
-  <button class="baseComplate" :style="style" @click="gotoLink">
-    {{ text }}
-  </button>
+  <button class="baseComplate" :style="style" @click="gotoLink">{{ text }}</button>
 </template>
 
 <script>
-import { handleStyle } from '../utils/index';
+import { handleStyle } from "../utils/index";
 export default {
   props: {
-    id: {
-      type: String,
-    },
     text: {
       type: String,
-      default: '按钮'
+      default: "按钮"
     },
     link: {
-      type: String,
+      type: String
+    },
+    css: {
+      type: Object,
+      default: {}
     },
     option: {
       type: Object,
       default: {}
-    },
-    editStatus: {
-      type: Boolean,
-      default: false
-    },
-    refInput: {
-      type: Array,
-      default: []
-    },
-    btnType: {
-      type: Number,
-      default: 0
-    },
-    inputFromUrl: {
-      type: String,
-    },
-    urlMethod: {
-      type: String,
     }
   },
   computed: {
     style() {
-      let keyword = this.$store.state.app.isSoftKeyboard
-      return handleStyle(this.option, keyword)
+      let keyword = this.$store.state.app.isSoftKeyboard;
+      return handleStyle(this.css, keyword);
     }
   },
   methods: {
     gotoLink() {
-      if (this.btnType == 0) {
-
-      } else if (this.btnType == 1) {
-        if (this.link) {
-          location.href = this.link
+      if (this.option.btnType == 0) {
+      } else if (this.option.btnType == 1) {
+        if (this.option.link) {
+          location.href = this.option.link;
         }
-      } else if (this.btnType == 2) {
-        this.$emit('form', {
-          refInput: this.refInput,
-          inputFromUrl: this.inputFromUrl,
-          urlMethod: this.urlMethod
-        })
+      } else if (this.option.btnType == 2) {
+        this.$emit("form", {
+          refInput: this.option.refInput,
+          inputFromUrl: this.option.inputFromUrl,
+          urlMethod: this.option.urlMethod
+        });
       }
     }
   }
-} 
+};
 </script>
 
 <style lang="less" scoped>

@@ -5,15 +5,16 @@
 </template>
 
 <script>
-import { handleStyle } from '../utils/index';
+import { handleStyle } from "../utils/index";
 export default {
   props: {
-    id: {
-      type: String,
-    },
     text: {
       type: String,
-      default: '按钮'
+      default: "按钮"
+    },
+    css: {
+      type: Object,
+      default: {}
     },
     option: {
       type: Object,
@@ -22,13 +23,12 @@ export default {
   },
   computed: {
     style() {
-      let keyword = this.$store.state.app.isSoftKeyboard
-      return handleStyle(this.option, keyword)
+      let keyword = this.$store.state.app.isSoftKeyboard;
+      return handleStyle(this.css, keyword);
     }
   },
-  methods: {
-  }
-} 
+  methods: {}
+};
 </script>
 
 <style lang="less" scoped>
