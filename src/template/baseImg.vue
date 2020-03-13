@@ -1,5 +1,5 @@
 <template>
-  <img class="baseComplate" :src="text" alt :style="style" />
+  <img class="baseComplate" :class="animation.animationName" :src="text" alt :style="style" />
 </template>
 
 <script>
@@ -12,6 +12,9 @@ export default {
     css: {
       type: Object,
       default: {}
+    },
+    animation: {
+      type: Object
     }
   },
   computed: {

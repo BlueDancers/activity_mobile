@@ -1,6 +1,7 @@
 <template>
   <input
     class="baseComplate"
+    :class="animation.animationName"
     :placeholder="option.placeholder"
     :ref="option.inputName"
     type="text"
@@ -26,6 +27,9 @@ export default {
     css: {
       type: Object,
       default: {}
+    },
+    animation: {
+      type: Object
     }
   },
   computed: {

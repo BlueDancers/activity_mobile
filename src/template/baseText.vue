@@ -1,5 +1,13 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-02-22 12:51:37
+ * @LastEditTime: 2020-03-13 18:25:27
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /activity_mobile/src/template/baseText.vue
+ -->
 <template>
-  <div class="baseComplate" :style="style">
+  <div class="baseComplate" :style="style" :class="animation.animationName">
     <p v-html="text"></p>
   </div>
 </template>
@@ -19,6 +27,9 @@ export default {
     option: {
       type: Object,
       default: {}
+    },
+    animation: {
+      type: Object
     }
   },
   computed: {

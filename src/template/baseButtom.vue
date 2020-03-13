@@ -1,5 +1,18 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-02-22 12:51:37
+ * @LastEditTime: 2020-03-13 18:24:35
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /activity_mobile/src/template/baseButtom.vue
+ -->
 <template>
-  <button class="baseComplate" :style="style" @click="gotoLink">{{ text }}</button>
+  <button
+    class="baseComplate"
+    :class="animation.animationName"
+    :style="style"
+    @click="gotoLink"
+  >{{ text }}</button>
 </template>
 
 <script>
@@ -20,6 +33,9 @@ export default {
     option: {
       type: Object,
       default: {}
+    },
+    animation: {
+      type: Object
     }
   },
   computed: {
