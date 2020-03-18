@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-02-22 12:51:37
- * @LastEditTime: 2020-03-13 18:23:48
+ * @LastEditTime: 2020-03-18 10:02:51
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /activity_mobile/src/utils/index.js
@@ -17,11 +17,11 @@ function handleStyle(css, status) {
     'left',
     'width',
     'height',
-    'font-size',
-    'border-radius',
-    'border-width',
-    'padding-left',
-    'padding-right'
+    'fontSize',
+    'borderRadius',
+    'borderWidth',
+    'paddingLeft',
+    'paddingRight'
   ]
   const animation = ['animationDuration', 'animationDelay']
   for (const key in css) {
