@@ -1,8 +1,8 @@
 <!--
  * @Author: your name
  * @Date: 2020-02-22 12:51:37
- * @LastEditTime: 2020-03-13 18:32:37
- * @LastEditors: your name
+ * @LastEditTime: 2020-03-18 10:56:31
+ * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /activity_mobile/src/App.vue
  -->
@@ -39,5 +39,8 @@ img {
 .baseComplate {
   position: absolute;
   animation-fill-mode: forwards;
+}
+.van-fade-enter-active {
+  animation: none;
 }
 </style>
